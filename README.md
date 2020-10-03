@@ -52,3 +52,14 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/babalugats76/FlaskTest.git
 git push -u origin main
+
+git push heroku main
+should show that 
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+
+(venv) C:\Users\James Colestock\Documents\REST>heroku ps:scale web=1
+ »   Warning: heroku update available from 7.26.2 to 7.44.0.
+Scaling dynos... done, now running web at 1:Free
+
+https://sleepy-savannah-73999.herokuapp.com/todo
