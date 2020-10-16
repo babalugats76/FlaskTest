@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/api/todo/', methods=['POST'])
 @app.route('/api/todo/<int:id>', methods=['GET'])
 def todo(id=None):
-    conn = sqlite3.connect('rest.db',isolation_level=None)
+    conn = sqlite3.connect('rest.db', isolation_level=None)
     c = conn.cursor()
     if request.method == 'GET':
         c.execute('SELECT * FROM todos WHERE id = %s' % id)
@@ -22,7 +22,9 @@ def todo(id=None):
         c.execute(sql)
         c.close()
         conn.close()
-        return make_response(jsonify(c.lastrowid))
+        res = make_response(jsonify(c.lastrowid))
+        res.mimetype = 'application/json'
+        return res
 
 if __name__ == '__main__':
     app.run()
