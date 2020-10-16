@@ -3,8 +3,9 @@ import sqlite3
 
 app = Flask(__name__)
 
-@app.route('/api/todo/<int:id>', methods=['GET', 'POST'])
-def todo(id):
+@app.route('/api/todo/', methods=['POST'])
+@app.route('/api/todo/<int:id>', methods=['GET'])
+def todo(id=None):
     conn = sqlite3.connect('rest.db',isolation_level=None)
     c = conn.cursor()
     if request.method == 'GET':
