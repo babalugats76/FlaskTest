@@ -1,3 +1,5 @@
+import os
+
 from flask import make_response, jsonify, Flask, request
 import sqlite3
 
@@ -27,4 +29,5 @@ def todo(id=None):
         return res
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=True, use_reloader=True)

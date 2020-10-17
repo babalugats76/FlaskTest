@@ -1,0 +1,14 @@
+{
+  "name": "Flask Test",
+  "description": "A sample Flask app on Heroku",
+  "keywords": [
+    "flask",
+    "python",
+    "sample"
+  ],
+  "repository": "https://github.com/babalugats76/FlaskTest",
+  "scripts": {
+    "postdeploy": "python -c \"print('Flask Test deployed...')\""
+  },
+  "addons": []
+}
