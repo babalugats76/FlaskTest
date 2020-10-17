@@ -7,8 +7,5 @@
     "sample"
   ],
   "repository": "https://github.com/babalugats76/FlaskTest",
-  "scripts": {
-    "postdeploy": "python -c \"print('Flask Test deployed...')\""
-  },
   "addons": []
 }
