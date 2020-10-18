@@ -1,9 +1,13 @@
 import os
 
-from flask import make_response, jsonify, Flask, request
+from flask import make_response, jsonify, Flask, request, render_template
 import sqlite3
 
 app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html', app_name=app.name)
 
 @app.route('/api/todo/', methods=['POST'])
 @app.route('/api/todo/<int:id>', methods=['GET'])
