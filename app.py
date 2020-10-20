@@ -6,7 +6,7 @@ from flask import make_response, jsonify, Flask, request, render_template
 from flask_cors import CORS
 
 app = Flask(__name__)
-cors = CORS(app, origins=["cdpn.io"], resources={r'/api/*': {"origins": "*"}})
+cors = CORS(app, resources={r'/api/*': {"origins": ["cdpn.io"]}})
 
 logging.basicConfig(level=logging.DEBUG)
 logging.getLogger('flask_cors').level = logging.DEBUG
