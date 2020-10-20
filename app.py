@@ -1,10 +1,15 @@
 import os
 import sqlite3
+import logging
 
 from flask import make_response, jsonify, Flask, request, render_template
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app, origins=["codepen.io"], resources=r'/api/*')
 
+logging.basicConfig(level=logging.DEBUG)
+logging.getLogger('flask_cors').level = logging.DEBUG
 
 def dict_factory(cursor, row):
     d = {}
