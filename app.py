@@ -30,7 +30,7 @@ def todo(id=None):
         data['completed'] = bool(data['completed'])
         print('data', data)
         res = make_response(jsonify(data))
-        res.mimetype = 'application/json'
+        res.mimetype = 'application/json; charset=utf-8'
         c.close()
         conn.close()
         return res
@@ -46,7 +46,7 @@ def todo(id=None):
             "title": data[1],
             "completed": bool(data[2])
         }))
-        res.mimetype = 'application/json'
+        res.mimetype = 'application/json; charset=utf-8'
         c.close()
         conn.close()
         return res
