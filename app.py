@@ -28,6 +28,7 @@ def todo(id=None):
         c.execute("SELECT id, user_id AS userId, title, completed FROM todos WHERE id = %s" % id)
         data = c.fetchone()
         data['completed'] = bool(data['completed'])
+        print('data', data)
         res = make_response(jsonify(data))
         res.mimetype = 'application/json'
         c.close()
