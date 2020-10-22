@@ -11,6 +11,8 @@ cors = CORS(app, resources={r'/api/*': {"origins": ["https://cdpn.io"]}})
 logging.basicConfig(level=logging.DEBUG)
 logging.getLogger('flask_cors').level = logging.DEBUG
 
+author = os.environ.get('AUTHOR', None)
+
 def dict_factory(cursor, row):
     d = {}
     for idx, col in enumerate(cursor.description):
@@ -20,7 +22,7 @@ def dict_factory(cursor, row):
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html', app_name=app.name)
+    return render_template('index.html', app_name=app.name, app_author=author)
 
 
 @app.route('/api/todo/', methods=['POST'])
