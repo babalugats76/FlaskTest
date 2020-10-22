@@ -32,8 +32,9 @@ def todo(id=None):
     if request.method == 'GET':
         c.execute("SELECT id, user_id AS userId, title, completed FROM todos WHERE id = %s" % id)
         data = c.fetchone()
+        if data is None:
+            return make_response(jsonify({}))
         data['completed'] = bool(data['completed'])
-        print('data', data)
         res = make_response(jsonify(data))
         res.mimetype = 'application/json; charset=utf-8'
         c.close()
