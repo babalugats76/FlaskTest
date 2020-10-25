@@ -1,4 +1,4 @@
-from app import app
+from todo import app
 from flask import make_response, jsonify, request, render_template
 from pymongo import MongoClient
 import os
