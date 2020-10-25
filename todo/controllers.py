@@ -1,8 +1,10 @@
-from todo import app
-from flask import make_response, jsonify, request, render_template
-from pymongo import MongoClient
 import os
 import sqlite3
+
+from flask import make_response, jsonify, request, render_template
+from pymongo import MongoClient
+
+from todo import app
 
 author = os.environ.get('AUTHOR', None)
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI', None)
