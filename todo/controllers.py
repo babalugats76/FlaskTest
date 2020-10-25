@@ -15,7 +15,7 @@ def dict_factory(cursor, row):
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html', app)
+    return render_template('index.html', mongo_uri=app.config['MONGO_URI'], app_name=app.name, app_author=app.config['AUTHOR'] )
 
 @app.route('/api/todo/', methods=['POST'])
 @app.route('/api/todo/<int:id>', methods=['GET'])
