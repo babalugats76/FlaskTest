@@ -1,13 +1,8 @@
-import os
 import sqlite3
-
 from flask import make_response, jsonify, request, render_template
 from pymongo import MongoClient
-
 from todo import app
 
-author = os.environ.get('AUTHOR', None)
-app.config['MONGO_URI'] = os.environ.get('MONGO_URI', None)
 client = MongoClient(app.config['MONGO_URI'])
 db = client['flask-demo']
 #todos = db['todos']
@@ -18,11 +13,9 @@ def dict_factory(cursor, row):
         d[col[0]] = row[idx]
     return d
 
-
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html', app_name=app.name, app_author=author)
-
+    return render_template('index.html', app_name=app.name, app_author=app.config['AUTHOR'])
 
 @app.route('/api/todo/', methods=['POST'])
 @app.route('/api/todo/<int:id>', methods=['GET'])
