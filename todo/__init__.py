@@ -12,4 +12,6 @@ logging.getLogger('flask_cors').level = logging.DEBUG
 app.config['AUTHOR'] = os.environ.get('AUTHOR', None)
 app.config['MONGO_URI'] = os.environ.get('MONGO_URI', None)
 
+app.config['JSONIFY_MIMETYPE'] = 'application/json; charset=utf-8'
+
 from todo import controllers
