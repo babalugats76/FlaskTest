@@ -62,4 +62,5 @@ remote:        Procfile declares types -> web
  »   Warning: heroku update available from 7.26.2 to 7.44.0.
 Scaling dynos... done, now running web at 1:Free
 
+To view out in the cloud:
 https://sleepy-savannah-73999.herokuapp.com/todo
